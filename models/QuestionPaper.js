@@ -5,7 +5,7 @@ const questionPaperSchema = new mongoose.Schema({
   semester: { type: String, required: true },
   year: { type: Number, required: true },
   fileUrl: { type: String, required: true },
-  uploadedAt: { type: Date, default: Date.now }
+  //uploadedAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('QuestionPaper', questionPaperSchema);

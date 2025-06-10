@@ -18,12 +18,13 @@ exports.createQuestionPaper = async (req, res) => {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const qp = new QuestionPaper({
-      subject,
-      semester,
-      year, // ✅ add year to the DB
-      fileUrl,
-    });
+    const newPaper = new QuestionPaper({
+  subject: req.body.subject,       // your frontend sends subject, semester, year
+  semester: req.body.semester,
+  year: req.body.year,
+  fileUrl: file.path,              // <-- use fileUrl instead of filePath
+});
+
 
     await qp.save();
     res.status(201).json(qp);
